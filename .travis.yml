@@ -9,7 +9,7 @@ before_intall:
 scripts:
   - docker run parikshanth/react-test npm test -- --coverage
 
-after-success:
+after_success:
   - docker build -t parikshanth/multi-client ./client
   - docker build -t parikshanth/multi-nginx ./nginx
   - docker build -t parikshanth/multi-server ./server
