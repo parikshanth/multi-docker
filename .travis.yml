@@ -1,5 +1,4 @@
 sudo: required
-
 services:
   - docker
 
@@ -14,9 +13,9 @@ after_success:
   - docker build -t parikshanth/multi-nginx ./nginx
   - docker build -t parikshanth/multi-server ./server
   - docker build -t parikshanth/multi-worker ./worker
-  #log into docker CLI
+
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # push images to docker hub
+
   - docker push parikshanth/multi-client
   - docker push parikshanth/multi-nginx 
   - docker push parikshanth/multi-server
